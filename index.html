@@ -17,11 +17,10 @@
     <h2>Visited airports</h2>
     <div id="map" class="map"></div>
     <script type="text/javascript">
-      var airportsData = JSON.parse(airports);
       var airportsCoordinates = [];
-      for(var i = 0; i < airportsData.length; i++) {
+      for(var i = 0; i < airports.length; i++) {
         var coords = [];
-        coords.push(airportsData[i].lon, airportsData[i].lat);
+        coords.push(airports[i].lon, airports[i].lat);
         coords = ol.proj.transform(coords, 'EPSG:4326', 'EPSG:3857');
         airportsCoordinates.push(coords);
       }
