@@ -10,12 +10,11 @@
       }
     </style>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
-    <title>Airports</title>
+    <title>Visited airports</title>
   </head>
   <body>
-    <h2>Airports</h2>
+    <h2>Visited airports</h2>
     <div id="map" class="map"></div>
-
     <script type="text/javascript">
       var map = new ol.Map({
         target: 'map',
@@ -25,41 +24,28 @@
           })
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([17, 54]),
+          center: ol.proj.fromLonLat([18.6455, 54.3520]), // Gdansk
           zoom: 8
         })
       });
 
-var points = [ [43.78404, 56.23011], [20.595000, 54.890000]];
+      var points = [[43.78404, 56.23011], [20.595000, 54.890000]];
 
-for (var i = 0; i < points.length; i++) {
-    points[i] = ol.proj.transform(points[i], 'EPSG:4326', 'EPSG:3857');
-}
-
-var featureLine = new ol.Feature({ geometry: new ol.geom.LineString(points) });
-
-var vectorLine = new ol.source.Vector({});
-vectorLine.addFeature(featureLine);
-
-var vectorLineLayer = new ol.layer.Vector({
-    source: vectorLine,
-    style: new ol.style.Style({
-        stroke: new ol.style.Stroke({ color: '#9000ba', width: 3 })
-    })
-});
-map.addLayer(vectorLineLayer);
- 
-for (var i = 0; i < points.length; i++) {
-    var element = document.createElement('div');
-    element.innerHTML = '<img src="mapmarker.png"/></img>';
-    var marker = new ol.Overlay({
-                        position: points[i],
-                        positioning: 'center-center',
-                        element: element,
-                        stopEvent: false
-                    });
-    map.addOverlay(marker);
-}
+      for (var i = 0; i < points.length; i++) {
+          points[i] = ol.proj.transform(points[i], 'EPSG:4326', 'EPSG:3857');
+      }
+        
+      for (var i = 0; i < points.length; i++) {
+        var element = document.createElement('div');
+        element.innerHTML = '<img src="mapmarker.png"/></img>';
+        var marker = new ol.Overlay({
+                              position: points[i],
+                              positioning: 'center-center',
+                              element: element,
+                              stopEvent: false
+                            });
+        map.addOverlay(marker);
+      }
     </script>
   </body>
 </html>
