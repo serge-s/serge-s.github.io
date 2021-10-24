@@ -33,10 +33,16 @@
   <body>
     <div id="map" class="map"></div>
     <script type="text/javascript">
+
+var icon = L.icon({
+    iconUrl: 'mapmarker.png',
+    iconAnchor:   [8, 22],
+    popupAnchor:  [0, 0]
+});
 // prepare markers for the 'airports' layer
 var markers = L.layerGroup();
 for (var i = 0; i < airports.length; i++) {
-    L.marker([airports[i].lat, airports[i].lon]).bindPopup(airports[i].city + " - " + airports[i].name).addTo(markers);
+    L.marker([airports[i].lat, airports[i].lon], {icon: icon}).bindPopup(airports[i].city + " - " + airports[i].name + "<br># of flights: " + airports[i].count).addTo(markers);
 }
 
 // draw flight paths
