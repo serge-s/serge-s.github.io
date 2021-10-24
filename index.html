@@ -33,23 +33,25 @@
   <body>
     <div id="map" class="map"></div>
     <script type="text/javascript">
-
-var mymap = L.map('map').setView([54.3520, 18.6455], 8); // center on Gdansk
-
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1Ijoic2VyZ2UtcyIsImEiOiJja3Y1a2U5dGIwbWtmMnJva2VhMjQxeTR0In0.A9eGuucWjyJQPggiQg2ImA'
-}).addTo(mymap);
-
+// prepare markers for the 'airports' layer
+var markers = L.layerGroup();
 for (var i = 0; i < airports.length; i++) {
-    var marker = L.marker([airports[i].lat, airports[i].lon]).addTo(mymap);
-    marker.bindPopup(airports[i].city + " - " + airports[i].name);
+    L.marker([airports[i].lat, airports[i].lon]).bindPopup(airports[i].city + " - " + airports[i].name).addTo(markers);
 }
 
+var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery &copy <a href="https://www.mapbox.com/">Mapbox</a>',
+    mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2VyZ2UtcyIsImEiOiJja3Y1a2U5dGIwbWtmMnJva2VhMjQxeTR0In0.A9eGuucWjyJQPggiQg2ImA';
+
+var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr}),
+    streets  = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+
+var mymap = L.map('map', {
+    center: [54.3520, 18.6455], // center on Gdansk
+    zoom: 6,
+    layers: [grayscale, markers]
+});
+
+// draw flight paths
 for (var i = 0; i < flightpaths.length; i++) {
    var pointList = [new L.LatLng(flightpaths[i][0], flightpaths[i][1]),
                     new L.LatLng(flightpaths[i][2], flightpaths[i][3])];
@@ -62,6 +64,18 @@ for (var i = 0; i < flightpaths.length; i++) {
 
    firstpolyline.addTo(mymap);
 }
+
+var baseLayers = {
+    "Grayscale": grayscale,
+    "Streets": streets
+};
+
+var overlays = {
+    "Airports": markers
+};
+
+L.control.layers(baseLayers, overlays).addTo(mymap);
+
     </script>
   </body>
 </html>
