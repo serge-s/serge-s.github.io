@@ -659,7 +659,7 @@ airports = [{
         "url": "bremen-bremen-eddw"
     },
     {
-        "count": 2,
+        "count": 1,
         "icao": "EPTO",
         "iata": "NA0",
         "city": "Toruń",
@@ -780,7 +780,7 @@ airports = [{
         "url": "zielona-gora-babimost-epzg"
     },
     {
-        "count": 2,
+        "count": 1,
         "icao": "EGSU",
         "iata": "QFO",
         "city": "Duxford",
