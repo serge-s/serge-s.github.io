@@ -39,6 +39,22 @@ for (var i = 0; i < airports.length; i++) {
     L.marker([airports[i].lat, airports[i].lon]).bindPopup(airports[i].city + " - " + airports[i].name).addTo(markers);
 }
 
+// draw flight paths
+var flights = L.layerGroup();
+for (var i = 0; i < flightpaths.length; i++) {
+   var pointList = [new L.LatLng(flightpaths[i][0], flightpaths[i][1]),
+                    new L.LatLng(flightpaths[i][2], flightpaths[i][3])];
+
+   var firstpolyline = new L.Polyline(pointList, {
+       color: 'blue',
+       weight: 1.5,
+       opacity: 0.5,
+       smoothFactor: 1
+   });
+
+   firstpolyline.addTo(flights);
+}
+
 var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery &copy <a href="https://www.mapbox.com/">Mapbox</a>',
     mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2VyZ2UtcyIsImEiOiJja3Y1a2U5dGIwbWtmMnJva2VhMjQxeTR0In0.A9eGuucWjyJQPggiQg2ImA';
 
@@ -48,30 +64,17 @@ var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoom
 var mymap = L.map('map', {
     center: [54.3520, 18.6455], // center on Gdansk
     zoom: 6,
-    layers: [grayscale, markers]
+    layers: [streets, markers, flights]
 });
 
-// draw flight paths
-for (var i = 0; i < flightpaths.length; i++) {
-   var pointList = [new L.LatLng(flightpaths[i][0], flightpaths[i][1]),
-                    new L.LatLng(flightpaths[i][2], flightpaths[i][3])];
-   var firstpolyline = new L.Polyline(pointList, {
-       color: 'blue',
-       weight: 1.5,
-       opacity: 0.5,
-       smoothFactor: 1
-   });
-
-   firstpolyline.addTo(mymap);
-}
-
 var baseLayers = {
-    "Grayscale": grayscale,
-    "Streets": streets
+    "Streets": streets,
+    "Grayscale": grayscale
 };
 
 var overlays = {
-    "Airports": markers
+    "Airports": markers,
+    "Flights": flights
 };
 
 L.control.layers(baseLayers, overlays).addTo(mymap);
