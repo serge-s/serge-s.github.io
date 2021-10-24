@@ -2,110 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
     <style>
-      .map {
+        .map {
         height: 100vh;
         width: 100%;
-      }
-      #viewSwitcher {
-        background-color: blue;
-        text-align: center;
-        line-height: 40px;
-        width: 25%;
-        margin: auto;
-        color:white;
-      }
+        }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RG4HKM3EP9"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RG4HKM3EP9');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RG4HKM3EP9');
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+    </script>
+
     <script src="airports.json.js"></script>
     <script src="flightpaths.js"></script>
+
     <title>Visited airports & flights taken</title>
   </head>
   <body>
-    <div id="viewSwitcher">Flights</div>
     <div id="map" class="map"></div>
     <script type="text/javascript">
 
-var airportsCoordinates = [];
+var mymap = L.map('map').setView([54.3520, 18.6455], 8); // center on Gdansk
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1Ijoic2VyZ2UtcyIsImEiOiJja3Y1a2U5dGIwbWtmMnJva2VhMjQxeTR0In0.A9eGuucWjyJQPggiQg2ImA'
+}).addTo(mymap);
+
 for (var i = 0; i < airports.length; i++) {
-    var coords = [];
-    coords.push(airports[i].lon, airports[i].lat);
-    coords = ol.proj.transform(coords, 'EPSG:4326', 'EPSG:3857');
-    airportsCoordinates.push(coords);
+    var marker = L.marker([airports[i].lat, airports[i].lon]).addTo(mymap);
+    marker.bindPopup(airports[i].city + " - " + airports[i].name);
 }
 
-var flights = [];
 for (var i = 0; i < flightpaths.length; i++) {
-    var src = [];
-    src.push(flightpaths[i][1], flightpaths[i][0]);
-    src = ol.proj.transform(src, 'EPSG:4326', 'EPSG:3857');
-    flights.push(src);
-    var dst = [];
-    dst.push(flightpaths[i][3], flightpaths[i][2]);
-    dst = ol.proj.transform(dst, 'EPSG:4326', 'EPSG:3857');
-    flights.push(dst);
-}
+   var pointList = [new L.LatLng(flightpaths[i][0], flightpaths[i][1]),
+                    new L.LatLng(flightpaths[i][2], flightpaths[i][3])];
+   var firstpolyline = new L.Polyline(pointList, {
+       color: 'blue',
+       weight: 1.5,
+       opacity: 0.5,
+       smoothFactor: 1
+   });
 
-var map = new ol.Map({
-    target: 'map',
-    layers: [
-        new ol.layer.Tile({
-            source: new ol.source.OSM()
-        })
-    ],
-    view: new ol.View({
-        center: ol.proj.fromLonLat([18.6455, 54.3520]), // Gdansk
-        zoom: 6
-    })
-});
-
-for (var i = 0; i < airportsCoordinates.length; i++) {
-    var element = document.createElement('div');
-    element.innerHTML = '<img src="mapmarker.png"/></img>';
-    var marker = new ol.Overlay({
-        position: airportsCoordinates[i],
-        positioning: 'center-center',
-        element: element,
-        stopEvent: false
-    });
-    map.addOverlay(marker);
-}
-
-var vectorSource = new ol.source.Vector({});
-
-for (var i = 0; i < flights.length; i += 2) {
-    vectorSource.addFeature(new ol.Feature({
-        geometry: new ol.geom.LineString([flights[i], flights[i + 1]]),
-        name: 'Line'
-    }));
-}
-
-var flightsLayer = new ol.layer.Vector({
-    source: vectorSource
-});
-map.addLayer(flightsLayer);
-
-var viewSwitcher = document.getElementById('viewSwitcher');
-viewSwitcher.addEventListener('click', switchViews);
-
-var showFlights = true;
-
-function switchViews() {
-    viewSwitcher.innerText = (viewSwitcher.innerText == "Flights") ? "Visited airports" : "Flights";
-    showFlights = !showFlights;
-    if (showFlights)
-        map.addLayer(flightsLayer);
-    else
-        map.removeLayer(flightsLayer);
+   firstpolyline.addTo(mymap);
 }
     </script>
   </body>
