@@ -466,8 +466,8 @@ airports = [{
         "iata": "KUN",
         "city": "Kaunas",
         "name": "Kaunas",
-        "lat": "54.9",
-        "lon": "23.916668",
+        "lat": "54.963889",
+        "lon": "24.084722",
         "country": "LT",
         "url": "kaunas-kaunas-eyka"
     },
