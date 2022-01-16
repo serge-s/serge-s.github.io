@@ -424,8 +424,8 @@ airports = [{
         "iata": "KUN",
         "city": "Kaunas",
         "name": "Kaunas",
-        "lat": "54.9",
-        "lon": "23.916668",
+        "lat": "54.966803",
+        "lon": "24.074376",
         "country": "LT"
     },
     {
@@ -469,7 +469,7 @@ airports = [{
         "country": "GB"
     },
     {
-        "count": 351,
+        "count": 354,
         "icao": "EPGD",
         "iata": "GDN",
         "city": "Gdansk",
@@ -599,7 +599,7 @@ airports = [{
         "country": "DE"
     },
     {
-        "count": 1,
+        "count": 2,
         "icao": "EPTO",
         "iata": "NA0",
         "city": "Toru\u0144",
@@ -689,7 +689,7 @@ airports = [{
         "country": "PL"
     },
     {
-        "count": 173,
+        "count": 174,
         "icao": "EPWA",
         "iata": "WAW",
         "city": "Warsaw",
@@ -849,7 +849,7 @@ airports = [{
         "country": "GB"
     },
     {
-        "count": 8,
+        "count": 10,
         "icao": "EPWR",
         "iata": "WRO",
         "city": "Wroclaw",
@@ -939,7 +939,7 @@ airports = [{
         "country": "CZ"
     },
     {
-        "count": 40,
+        "count": 38,
         "icao": "EPKK",
         "iata": "KRK",
         "city": "Krakow",
@@ -979,7 +979,7 @@ airports = [{
         "country": "DE"
     },
     {
-        "count": 10,
+        "count": 11,
         "icao": "LFOB",
         "iata": "BVA",
         "city": "Beauvais",
@@ -999,7 +999,7 @@ airports = [{
         "country": "CZ"
     },
     {
-        "count": 3,
+        "count": 4,
         "icao": "LFPG",
         "iata": "CDG",
         "city": "Paris",
@@ -1169,7 +1169,7 @@ airports = [{
         "country": "FR"
     },
     {
-        "count": 12,
+        "count": 14,
         "icao": "LIME",
         "iata": "BGY",
         "city": "Bergamo",
@@ -1353,7 +1353,7 @@ airports = [{
         "icao": "LFMN",
         "iata": "NCE",
         "city": "Nice",
-        "name": "Nice Cote D'Azur",
+        "name": "Nice Cote D&#39;Azur",
         "lat": "43.658411",
         "lon": "7.215872",
         "country": "FR"
@@ -1493,7 +1493,7 @@ airports = [{
         "icao": "KORD",
         "iata": "ORD",
         "city": "Chicago",
-        "name": "O'Hare",
+        "name": "O&#39;Hare",
         "lat": "41.978603",
         "lon": "-87.904842",
         "country": "US"
@@ -1517,6 +1517,16 @@ airports = [{
         "lat": "41.900969",
         "lon": "2.760547",
         "country": "ES"
+    },
+    {
+        "count": 1,
+        "icao": "LPBG",
+        "iata": "BGC",
+        "city": "Braganca",
+        "name": "Braganca",
+        "lat": "41.859583",
+        "lon": "-6.706072",
+        "country": "PT"
     },
     {
         "count": 15,
@@ -1569,7 +1579,7 @@ airports = [{
         "country": "AL"
     },
     {
-        "count": 11,
+        "count": 13,
         "icao": "LEBL",
         "iata": "BCN",
         "city": "Barcelona",
@@ -1749,7 +1759,7 @@ airports = [{
         "country": "ES"
     },
     {
-        "count": 4,
+        "count": 6,
         "icao": "LEVC",
         "iata": "VLC",
         "city": "Valencia",
@@ -1767,6 +1777,16 @@ airports = [{
         "lat": "38.944533",
         "lon": "-77.455811",
         "country": "US"
+    },
+    {
+        "count": 1,
+        "icao": "LEBZ",
+        "iata": "BJZ",
+        "city": "Badajoz",
+        "name": "Talavera La Real",
+        "lat": "38.891250",
+        "lon": "-6.821333",
+        "country": "ES"
     },
     {
         "count": 2,
@@ -1789,7 +1809,7 @@ airports = [{
         "country": "US"
     },
     {
-        "count": 6,
+        "count": 7,
         "icao": "LPPT",
         "iata": "LIS",
         "city": "Lisbon",
@@ -1806,6 +1826,16 @@ airports = [{
         "name": "Lajes",
         "lat": "38.761944",
         "lon": "-27.090833",
+        "country": "PT"
+    },
+    {
+        "count": 2,
+        "icao": "LPCS",
+        "iata": "CAT",
+        "city": "Cascais",
+        "name": "Cascais Municipal Aerodrome",
+        "lat": "38.725555",
+        "lon": "-9.355278",
         "country": "PT"
     },
     {
@@ -1879,7 +1909,7 @@ airports = [{
         "country": "GR"
     },
     {
-        "count": 2,
+        "count": 3,
         "icao": "LEZL",
         "iata": "SVQ",
         "city": "Sevilla",
@@ -1900,6 +1930,16 @@ airports = [{
     },
     {
         "count": 1,
+        "icao": "LPPM",
+        "iata": "PRM",
+        "city": "Portimao",
+        "name": "Portimao",
+        "lat": "37.13333",
+        "lon": "-8.533333",
+        "country": "PT"
+    },
+    {
+        "count": 1,
         "icao": "LGKL",
         "iata": "KLX",
         "city": "Kalamata",
@@ -1907,6 +1947,16 @@ airports = [{
         "lat": "37.068417",
         "lon": "22.025389",
         "country": "GR"
+    },
+    {
+        "count": 1,
+        "icao": "LPFR",
+        "iata": "FAO",
+        "city": "Faro",
+        "name": "Faro",
+        "lat": "37.014444",
+        "lon": "-7.965833",
+        "country": "PT"
     },
     {
         "count": 4,
@@ -2297,26 +2347,6 @@ airports = [{
         "lat": "10.820556",
         "lon": "106.660833",
         "country": "VN"
-    },
-    {
-        "count": 2,
-        "icao": "MROC",
-        "iata": "SJO",
-        "city": "San Jose",
-        "name": "Juan Santamaria",
-        "lat": "9.993861",
-        "lon": "-84.208917",
-        "country": "CR"
-    },
-    {
-        "count": 4,
-        "icao": "MPTO",
-        "iata": "PTY",
-        "city": "Panama City",
-        "name": "Tocumen",
-        "lat": "9.071389",
-        "lon": "-79.383333",
-        "country": "PA"
     },
     {
         "count": 4,
