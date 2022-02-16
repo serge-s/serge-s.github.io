@@ -10,8 +10,7 @@
 
 
 
-
-Map data https://github.com/topojson/topojson
+Map data https://github.com/topojson/topojson  
 Copyright (c) 2012-2016, Michael Bostock
 All rights reserved.
 
