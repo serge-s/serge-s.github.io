@@ -2,6 +2,7 @@
 
 The event was hosted at <https://ctf.hackthebox.com/event/821>
 
-My first attempt on CTF solutions writeup.
+My first attempt at CTF solutions writeup.
 
 [Reverse Engineering](re.md)
+[Forensics](forensics.md)
