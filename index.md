@@ -11,3 +11,7 @@ Challenge caregories:
 [Reverse Engineering](re.md)
 
 [Forensics](forensics.md)
+
+[Hardware](hw.md)
+
+[Web](web.md)
