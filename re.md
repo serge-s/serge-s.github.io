@@ -8,7 +8,7 @@ Plain text flag in the binary.
 
 Thanks to IDA's decompiler got this (had to help it determining the array size):
 
-```C
+```c
   if ( s[31] == 'p'
     && s[1] == 'T'
     && s[7] == 'k'
@@ -59,7 +59,7 @@ Just sort these in ascending order and get the flag:
 
 Again, use IDA to decompile it:
 
-```C
+```c
   while ( 1 )
   {
     printf("ctfsh-$ ");
@@ -74,7 +74,7 @@ Again, use IDA to decompile it:
 
 `runcmd` looks up `CMDS` where we notice a `getflag` command with the matching `func_flag()` function:
 
-```C
+```c
 int func_flag()
 {
   char s[256] = {};
@@ -99,7 +99,7 @@ int func_flag()
 `s ^ m1` should be equal to `t` and then decoded flag is calculated as `s ^ m2`
 Which means we can just XOR `m2` and `t` to get the flag:
 
-```C
+```c
 #include <stdio.h>
 
 unsigned char m2[] = {
@@ -146,7 +146,7 @@ which gives 'P4ssw0rdTw0'
 3. `xor(v0, &t2, 17, 19);`
 where 17 is the string length and 19 is the value to XOR with.
 
-```C
+```c
 #include <stdio.h>
 
 unsigned char t2[] = {0x47, 0x7B, 0x7A, 0x61, 0x77, 0x52, 0x7D, 0x77, 0x55, 0x7A, 0x7D, 0x72, 0x7F, 0x32, 0x32, 0x32, 0x13};
@@ -214,7 +214,7 @@ What is the third password?
 
 Thanks to old friend IDA, decompiled C code:
 
-```C
+```c
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   char s[128] = {};
