@@ -14,6 +14,7 @@ Challenge caregories:
 * [Web](web.md)
 * [Pwn](pwn.md)
 * [Crypto](crypto.md)
+* [ML](ml.md)
 
 
 <!--html_preserve-->
