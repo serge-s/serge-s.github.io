@@ -12,6 +12,8 @@ Challenge caregories:
 * [Forensics](forensics.md)
 * [Hardware](hw.md)
 * [Web](web.md)
+* [Pwn](pwn.md)
+* [Crypto](crypto.md)
 
 
 <!--html_preserve-->
