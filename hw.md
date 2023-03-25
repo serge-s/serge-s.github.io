@@ -6,6 +6,8 @@ Open .gbr files in your favorite Gerber viewer - HadesMicro-B_Cu.gbr & HadesMicr
 ![Critical Flight flag part 1](hw_Critical_Flight1.png)
 ![Critical Flight flag part 1](hw_Critical_Flight2.png)
 
+> HTB{533_7h3_1nn32_w02k1n95_0f_313c720n1c5#$@}
+
 ## Debug
 
 Open hw_debug.sal in Logic 2 analyzer.

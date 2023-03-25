@@ -2,16 +2,20 @@
 
 ## Plaintext Tleasure
 
-As the title says - the flag is in plain text in capture.pcap - HTB{th3s3_4l13ns_st1ll_us3_HTTP}
+As the title says - the flag is in plain text in capture.pcap
+
+> HTB{th3s3_4l13ns_st1ll_us3_HTTP}
 
 ## Alien Cradle
 
 View cradle.ps1, `$f = 'H' + 'T' + 'B' + '{p0w3rs' + 'h3ll' + '_Cr4d' + 'l3s_c4n_g3t' + '_th' + '3_j0b_d' + '0n3}'`
+
 > HTB{p0w3rsh3ll_Cr4dl3s_c4n_g3t_th3_j0b_d0n3}
 
 ## Extraterrestrial Persistence
 
 Yet another base64 string.
+
 > HTB{th3s3_4l13nS_4r3_s00000_b4s1c}
 
 ## Packet Cyclone
@@ -75,4 +79,5 @@ Set-Content -Path output.file -AsByteStream -Value $EncryptedBinaryStream
 ```
 
 This produced a .NET dll which I did not bother to reverse engineer since the flag is there in plain text (in UTF-16 encoding):
+
 > HTB{0neN0Te?_iT'5_4_tr4P!}

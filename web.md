@@ -22,4 +22,3 @@ and then entered these credentials on the login screen:
 ![Drobots - SQL injection](Drobots.png)
 
 > HTB{p4r4m3t3r1z4t10n_1s_1mp0rt4nt!!!}
-

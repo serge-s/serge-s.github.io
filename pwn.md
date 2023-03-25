@@ -52,4 +52,6 @@ Fill the 32-byte buffer, overwrite the alginment address and the "target's" 0xde
 ```
 
 0x00007fffffffe0c0 - 0x00007fffffffe090 = 48
-Modify wrapper.py setting `payload = b'A' * 48`, run and get the flag (HTB{b0f_s33m5_3z_r1ght?})
+Modify wrapper.py setting `payload = b'A' * 48`, run and get the flag.
+
+> HTB{b0f_s33m5_3z_r1ght?}

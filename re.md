@@ -4,6 +4,8 @@
 
 Plain text flag in the binary.
 
+> HTB{d1v1ng_1nt0_th3_d4tab4nk5}
+
 ## Shattered Tablet
 
 Thanks to IDA's decompiler got this (had to help it determining the array size):
