@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://serge-s.github.io/sitemap.xml
