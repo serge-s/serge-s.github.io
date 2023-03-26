@@ -132,7 +132,7 @@ void main()
 }
 ```
 
-> HTB{c4ck1ng_0p3n_sh3l5_by_th3_s34_shr3}
+> HTB{cr4ck1ng_0p3n_sh3ll5_by_th3_s34_sh0r3}
 
 ## Hunting License
 
