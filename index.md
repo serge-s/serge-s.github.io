@@ -1,8 +1,3 @@
----
-title: Cyber Apocalypse 2023 - The Cursed Mission Solutions
-css: styles.css
----
-
 # Cyber Apocalypse 2023 - The Cursed Mission
 
 ![Cyber Apocalypse 2023 - The Cursed Mission](ctf-banner.png)
