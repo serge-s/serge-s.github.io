@@ -1,5 +1,9 @@
 # Cyber Apocalypse 2023 - The Cursed Mission
 
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
 ![Cyber Apocalypse 2023 - The Cursed Mission](ctf-banner.png)
 
 The event was hosted at <https://ctf.hackthebox.com/event/821>
@@ -16,9 +20,7 @@ Challenge caregories:
 * [Crypto](crypto.md)
 * [ML](ml.md)
 
-
 <!--html_preserve-->
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RG4HKM3EP9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
