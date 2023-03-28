@@ -1,6 +1,6 @@
 # Cyber Apocalypse 2023 - The Cursed Mission
 
-![Cyber Apocalypse 2023 - The Cursed Mission](ctf-banner.png)
+![](ctf-banner.png)
 
 The event was hosted at https://ctf.hackthebox.com/event/821
 

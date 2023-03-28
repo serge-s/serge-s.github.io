@@ -1,4 +1,4 @@
-# Reverse Engineering Challenges
+# Reverse Engineering
 
 ## Needle in a Haystack
 

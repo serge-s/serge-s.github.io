@@ -1,4 +1,4 @@
-# Forensics Challenges
+# Forensics
 
 ## Plaintext Tleasure
 
