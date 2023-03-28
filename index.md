@@ -1,12 +1,13 @@
-# Cyber Apocalypse 2023 - The Cursed Mission
+---
+title: Cyber Apocalypse 2023 - The Cursed Mission Solutions
+css: _layouts/styles.css
+---
 
-<head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
+# Cyber Apocalypse 2023 - The Cursed Mission
 
 ![Cyber Apocalypse 2023 - The Cursed Mission](ctf-banner.png)
 
-The event was hosted at <https://ctf.hackthebox.com/event/821>
+The event was hosted at https://ctf.hackthebox.com/event/821
 
 My first attempt at CTF solutions writeup. Written with assumption that the reader attempted to solve these tasks and is looking for a hint.
 
