@@ -6,7 +6,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
 
-description: "Cyber Apocalypse 2023 - The Cursed Mission Solutions"
+#description: "Cyber Apocalypse 2023 - The Cursed Mission Solutions"
 baseurl: ""
 
 permalink: pretty
