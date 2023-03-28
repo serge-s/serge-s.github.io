@@ -1,4 +1,14 @@
-kramdown:
-  parse_block_html: true
+github_username: serge-s
+author: ss
+
+theme: minima
+plugins:
+  - jekyll-gist
+  - jekyll-feed
+
+description: "Cyber Apocalypse 2023 - The Cursed Mission Solutions"
+baseurl: ""
+
+permalink: pretty
 
 google_analytics: G-RG4HKM3EP9
